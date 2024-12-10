@@ -2,6 +2,7 @@ package com.Hrms.tests;
 
 
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -15,21 +16,12 @@ import com.Hrms.utils.CommonUtils;
 import com.Hrms.utils.TestNGUtility;
 
 public class TestPIMPage extends BasePage{
-	@BeforeTest
-	public void setup() throws Exception {
-		
-	CommonUtils.initialize();
-	CommonUtils.launchBrowserAndNavigateToApp();
-		
-	}
 	
-	@AfterTest
-	public void close() throws Exception {
-		
-	//driver.quit();
-		
-	}
-		
+	
+	
+WebDriver driver;
+	
+
 	
 	//----------------Page class objects Implementations---------
 	
@@ -37,17 +29,17 @@ public class TestPIMPage extends BasePage{
 	
 	PIMPage pimPage = new PIMPage();
 	
-	@Test(description="Verify that an employee can be added successfully", priority=0)
+	@Test(description="Verify that an employee can be added successfully",priority=0)
 	public void addEmployee() throws Exception {
 	    
-	    // Log in to the application using the login page method
+		// Log in to the application using the login page method
 	    loginPage.login();
 	    
 	    // Wait for 5 seconds to allow the page to load
 	    CommonUtils.hardWait(5);
 	    
 	    // Assert that the welcome message contains "Welcome selenium"
-	    TestNGUtility.assertTrue(CommonUtils.getElementText(loginPage.getWelcomePage()), "Welcome selenium");
+	    TestNGUtility.assertTrue(CommonUtils.getElementText(loginPage.getWelcomePage()), "Welcome kosmik");
 	    
 	    // Move the mouse to the PIM (Personnel Information Management) element
 	    CommonUtils.moveToElement(PIMPage.getPim());
@@ -62,10 +54,10 @@ public class TestPIMPage extends BasePage{
 	    CommonUtils.switchToFrame(PIMPage.getFrame());
 	    
 	    // Enter the first name "Sai" into the first name field
-	    CommonUtils.enterValue(PIMPage.getFirstName(), "Sai", true);
+	    CommonUtils.enterValue(PIMPage.getFirstName(), "Kosmik", true);
 	    
 	    // Enter the last name "P" into the last name field
-	    CommonUtils.enterValue(PIMPage.getLastName(), "P", true);
+	    CommonUtils.enterValue(PIMPage.getLastName(), "Sai", true);
 	    
 	    // Click the "Save" button to add the new employee
 	    CommonUtils.clickElement(PIMPage.getSave());
@@ -74,34 +66,111 @@ public class TestPIMPage extends BasePage{
 	    CommonUtils.clickElement(PIMPage.getBackButton());
 	    
 	    // Assert that the employee name displayed matches "Sai P"
-	    TestNGUtility.assertTrue(CommonUtils.getElementText(PIMPage.getEmpName()),"Sai P");
+	    TestNGUtility.assertTrue(CommonUtils.getElementText(PIMPage.getEmpName()),"Kosmik Sai");
+		
+		
 	    
 	}
-
 	
-	@Test(description="Verify that the search functionality returns the correct employee",priority=1)
+	@Test(description="Verify that the search functionality returns the correct employee",groups= {"Smoke"},priority=1)
 	public void searchEmployee() throws Exception {
-		
-		
-		
 		
 	}
 	
 	@Test(description="Verify that employee details can be edited successfully",priority=2)
 	public void editEmployeeDetails() throws Exception {
-	
-	
+		
+		// Log in to the application using the login page method
+		loginPage.login();
+		
+		// Wait for 5 seconds to allow the page to load
+	    CommonUtils.hardWait(5);
+	    
+	    //verify welcome page
+	    TestNGUtility.assertTrue(CommonUtils.getElementText(loginPage.getWelcomePage()), "Welcome kosmik");
+		
+	    
+	    //click om pim element
+	    CommonUtils.clickElement(pimPage.getPim());
+	    
+	    CommonUtils.hardWait(5);
+	    
+	    
+	    //switch to frame
+	    CommonUtils.switchToFrame(pimPage.getFrame());
+	    
+	    CommonUtils.hardWait(5);
+	    
+	    //identify and select value from dropdown
+	    CommonUtils.selectDropDownValue(pimPage.getSearchBy(), "Emp. First Name");
+	    
+	    CommonUtils.hardWait(5);
+	    
+	    //identify and enter first name
+	    CommonUtils.enterValue(pimPage.getSearchFor(), "ksai", true);
+	    
+	    CommonUtils.clickElement(pimPage.getSearch());
+	    
+	    CommonUtils.clickElement(pimPage.getEmpName());
+	    
+	    CommonUtils.clickElement(pimPage.getEdit());
+	    
+	    CommonUtils.selectDropDownValue(pimPage.getmstatus(), "Unmarried");
+	    
+	    CommonUtils.clickElement(pimPage.getEditSave());
+	    
+	    
+	    
+	    
+	    
+	    
 	}
 	
-	@Test(description="Verify that an employee can be deleted successfully",groups= {"Smoke"},priority=3)
+	@Test(description="Verify that an employee can be deleted successfully",priority=3)
 	public void deleteEmployee() throws Exception {
-	 Assert.assertEquals("akki", "akki");
+	 
+		
+		// Log in to the application using the login page method
+				loginPage.login();
+				
+				// Wait for 5 seconds to allow the page to load
+			    CommonUtils.hardWait(5);
+			    
+			    //verify welcome page
+			    TestNGUtility.assertTrue(CommonUtils.getElementText(loginPage.getWelcomePage()), "Welcome kosmik");
+				
+			    
+			    //click om pim element
+			    CommonUtils.clickElement(pimPage.getPim());
+			    
+			    CommonUtils.hardWait(5);
+			    
+			    
+			    //switch to frame
+			    CommonUtils.switchToFrame(pimPage.getFrame());
+			    
+			    CommonUtils.hardWait(5);
+			    
+			    //identify and select value from dropdown
+			    CommonUtils.selectDropDownValue(pimPage.getSearchBy(), "Emp. Last Name");
+			    
+			    CommonUtils.hardWait(5);
+			    
+			    //identify and enter first name
+			    CommonUtils.enterValue(pimPage.getSearchFor(), "sai", true);
+			    
+			    CommonUtils.clickElement(pimPage.getSearch());
 	
+			    CommonUtils.clickElement(pimPage.getCheckbox_delete());
+			    
+			    CommonUtils.clickElement(pimPage.getDelete());
+			    
+			    TestNGUtility.assertTrue(CommonUtils.getElementText(pimPage.getDeleteMessage()), "Successfully Deleted");
 	}
 	
-	@Test(description="Verify that the employee list is displayed correctly with accurate information",groups= {"Smoke"},dependsOnMethods= {"deleteEmployee"},priority=4)
+	@Test(description="Verify that the employee list is displayed correctly with accurate information",dependsOnMethods= {"addEmployee"},groups= {"Smoke"},priority=4)
 	public void viewEmployeeList() throws Exception {
-	
+		Assert.assertEquals("akki", "akki");
 	
 	}
 	
@@ -113,7 +182,7 @@ public class TestPIMPage extends BasePage{
 	
 	@Test(description="Verify that employee details are correctly displayed",priority=6)
 	public void viewEmployeeDetails() throws Exception {
-	
+		
 	
 	}
 	
@@ -128,4 +197,6 @@ public class TestPIMPage extends BasePage{
 	
 	
 	}
+
+	
 }

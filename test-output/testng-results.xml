@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="8" total="9" passed="1" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-30T13:42:56 IST" name="Suite" finished-at="2024-09-30T13:42:56 IST" duration-ms="47">
+  <suite name="Suite" duration-ms="37740" started-at="2024-12-09T17:07:41Z" finished-at="2024-12-09T17:08:19Z">
     <groups>
-      <group name="Smoke">
-        <method signature="TestPIMPage.viewEmployeeList()[pri:4, instance:com.Hrms.tests.TestPIMPage@13e344d]" name="viewEmployeeList" class="com.Hrms.tests.TestPIMPage"/>
-      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2024-09-30T13:42:56 IST" name="Smoke Testing" finished-at="2024-09-30T13:42:56 IST" duration-ms="47">
+    <test name="Test" duration-ms="37740" started-at="2024-12-09T17:07:41Z" finished-at="2024-12-09T17:08:19Z">
       <class name="com.Hrms.tests.TestPIMPage">
-        <test-method signature="viewEmployeeList()[pri:4, instance:com.Hrms.tests.TestPIMPage@13e344d]" started-at="2024-09-30T13:42:56 IST" name="viewEmployeeList" description="Verify that the employee list is displayed correctly with accurate information" finished-at="2024-09-30T13:42:56 IST" duration-ms="9" status="PASS">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.Hrms.tests.TestPIMPage@2cb4c3ab]" name="setup" is-config="true" duration-ms="10662" started-at="2024-12-09T22:37:41Z" finished-at="2024-12-09T22:37:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- viewEmployeeList -->
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="deleteEmployee()[pri:0, instance:com.Hrms.tests.TestPIMPage@2cb4c3ab]" name="deleteEmployee" duration-ms="27032" started-at="2024-12-09T22:37:52Z" description="Verify that an employee can be deleted successfully" finished-at="2024-12-09T22:38:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteEmployee -->
+        <test-method status="PASS" signature="close()[pri:0, instance:com.Hrms.tests.TestPIMPage@2cb4c3ab]" name="close" is-config="true" duration-ms="3" started-at="2024-12-09T22:38:19Z" finished-at="2024-12-09T22:38:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
       </class> <!-- com.Hrms.tests.TestPIMPage -->
-    </test> <!-- Smoke Testing -->
+    </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -17,7 +17,7 @@ public class LoginPage {
 	private final By by_username = By.xpath("//input[@name='txtUserName']");
 	private final By by_password = By.xpath("//input[@name='txtPassword']");
 	private final By by_signIn = By.xpath("//input[@name='Submit']");
-	private final By by_welcomepage = By.xpath("//li[text()='Welcome selenium']");
+	private final By by_welcomepage = By.xpath("//li[text()='Welcome kosmik']");
 	
 	
 	// Helping functions
@@ -25,9 +25,9 @@ public class LoginPage {
 		
 		try {
 			
-			CommonUtils.enterValue(getUsername(), "selenium",true);
+			CommonUtils.enterValue(getUsername(), "kosmik",true);
 			
-			CommonUtils.enterValue(getPassword(), "selenium", true);
+			CommonUtils.enterValue(getPassword(), "kosmik", true);
 			
 			CommonUtils.clickElement(getSignIn());
 		}catch(Exception e) {
