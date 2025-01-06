@@ -7,7 +7,7 @@
       
       <methods>
       
-         <include name = "addEmployee"/>
+         <include name = "deleteEmployee"/>
          
       </methods>
     </classes>

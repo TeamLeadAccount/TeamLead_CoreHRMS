@@ -21,7 +21,7 @@ public class PIMPage{
 	private final static By by_edit = By.xpath("//input[@name='EditMain']");
 	private final static By by_mstatus = By.xpath("//select[@id='cmbMarital']");
 	private final static By by_save_edit = By.xpath("//input[@id='btnEditPers']");
-	private final static By by_checkBox_delete = By.xpath("//input[@value='0004']");
+	private final static By by_checkBox_delete = By.xpath("//input[@value='0002']");
 	private final static By by_delete = By.xpath("//input[@value='Delete']");
 	private final static By by_delete_message = By.xpath("//span[@class='failure']");
 	
